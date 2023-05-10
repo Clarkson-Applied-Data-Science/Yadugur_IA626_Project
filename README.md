@@ -33,7 +33,7 @@ The code starts by importing several libraries and modules that are necessary fo
 
 ```python
 conn = pymysql.connect(host='mysql.clarksonmsda.org', port=3306, user='ia626',
-                       passwd='ia626clarkson', db='ia626', autocommit=True)
+                       passwd='*************', db='ia626', autocommit=True)
 
 cur = conn.cursor(pymysql.cursors.DictCursor)
 
