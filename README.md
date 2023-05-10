@@ -122,4 +122,57 @@ if len(tokens)>0:
 
 10. Finally, outside the loop, the code checks if there are any remaining tokens in the `tokens` list that haven't been inserted. If so, they are inserted using `cur.executemany()`.
 
+## Flask Application Setup:
+```python
+pp = Flask(__name__)
+@app.route("/flightinfo", methods=['GET','POST'])
+def flightinfo():
+    res = {} 
+    flightnum =  request.args.get('flightnum')
+    sql =f'SELECT * FROM `yadugur_FinalProject` WHERE `flight`=%s '
+    cur.execute(sql,flightnum)
+    rows = []
+    for row in cur:
+        d = {}
+        d['dt'] = str(row['dt'])
+        d['hex'] = str(row['hex'])
+        d['lat'] = str(row['lat'])
+        d['lon'] = str(row['lon'])
+        d['alt_baro'] = str(row['alt_baro'])
+        d['alt_geom'] = str(row['alt_geom'])
+        rows.append(d)
+        #print(row['ssid'])
+    res['Search_results'] = rows
+    res['msg'] = 'Hope you got the required info, else please continue to check further'
+    #res['req'] = '/wifi'
+```
+
+1. The code assumes that you have imported the necessary modules, including `Flask`, and have created a Flask application object named `pp`.
+
+2. The `@app.route("/flightinfo", methods=['GET','POST'])` decorator is used to define a route for the `/flightinfo` URL endpoint. This route accepts both GET and POST HTTP methods.
+
+3. The `flightinfo()` function is defined to handle the request to the `/flightinfo` endpoint.
+
+4. The `res` dictionary is initialized to store the response data that will be sent back to the client.
+
+5. The `flightnum` variable is obtained from the request query parameters using `request.args.get('flightnum')`. It retrieves the value of the `flightnum` parameter provided in the request URL.
+
+6. An SQL query string is constructed dynamically using an f-string (formatted string literal) to select all columns (`*`) from the `yadugur_FinalProject` table where the `flight` column matches the `flightnum` parameter.
+
+7. The SQL query is executed using `cur.execute(sql, flightnum)` to fetch the rows from the database that match the flight number.
+
+8. The `rows` list is created to store the fetched flight information.
+
+9. A loop iterates over the fetched rows using `for row in cur`. For each row, a dictionary `d` is created to store the column values.
+
+10. The column values are converted to strings (`str()`) and assigned to the corresponding keys in the `d` dictionary.
+
+11. The `d` dictionary is appended to the `rows` list.
+
+12. The `Search_results` key in the `res` dictionary is assigned the value of the `rows` list, containing the flight information.
+
+13. The `msg` key in the `res` dictionary is assigned a message to provide feedback to the user.
+
+14. The `res` dictionary is returned as the response to the client.
+
 
