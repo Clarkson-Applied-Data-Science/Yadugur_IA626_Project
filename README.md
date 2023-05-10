@@ -197,12 +197,17 @@ When running the Flask application, you can access it by visiting `http://127.0.
  
  The code defines a route `/flightinfo` for the Flask application, which accepts both GET and POST requests. Inside the function associated with this route, it retrieves the `flightnum` parameter from the request's arguments and constructs a SQL query to fetch flight information from the database based on the given flight number. The query is executed using `cur.execute()`, and the retrieved rows are processed and stored in a list of dictionaries (`rows`). Finally, the response JSON is constructed with the search results and a message.
 
-Overall, this code sets up a connection to a MySQL database, creates a table, inserts data into the table, and provides an API endpoint to retrieve flight information based on the flight number using a Flask application.
-
 ## Running the Flask Application:
 
 The code runs the Flask application on the local machine (`localhost`) with the IP address `127.0.0.1` and in debug mode (`debug=True`).
 
+## Details of the flight : XAFUF
+<img width="1428" alt="XAFUF" src="https://github.com/Clarkson-Applied-Data-Science/Yadugur_IA626_Project/assets/133018344/64243155-e908-4a9b-8ff3-a800ab88fc62">
+
+## Details of the flight : ACA56
+<img width="1437" alt="ACA56" src="https://github.com/Clarkson-Applied-Data-Science/Yadugur_IA626_Project/assets/133018344/0b76c16d-605f-4648-973f-c8f66e8583bd">
+
+Overall, this code sets up a connection to a MySQL database, creates a table, inserts data into the table, and provides an API endpoint to retrieve flight information based on the flight number using a Flask application.
 
 
 
