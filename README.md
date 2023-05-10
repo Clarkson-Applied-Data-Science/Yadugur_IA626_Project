@@ -175,4 +175,22 @@ def flightinfo():
 
 14. The `res` dictionary is returned as the response to the client.
 
+```python
+if __name__ == "__main__":
+    app.run(host='127.0.0.1',debug=True)
+```
+
+1. The `if __name__ == "__main__":` condition checks if the script is being executed as the main module. It ensures that the following code block is only executed when the script is run directly and not imported as a module.
+
+2. Within the `if` condition, `app.run()` is called to start the Flask application.
+
+3. The `host` parameter is set to `'127.0.0.1'`, which represents the loopback IP address or localhost. This means the Flask application will listen for incoming requests only on the local machine.
+
+4. The `debug` parameter is set to `True`, enabling the debug mode for the Flask application. In debug mode, the application provides detailed error messages and automatically reloads the code when changes are detected, making it convenient for development and debugging.
+
+5. When the script is executed directly, the Flask application will start running on the specified host (`127.0.0.1`) and port (default is 5000) with debug mode enabled.
+
+When running the Flask application, you can access it by visiting `http://127.0.0.1:5000/flightinfo` in your web browser, assuming the `/flightinfo` endpoint has been defined within your Flask routes.
+
+
 
