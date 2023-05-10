@@ -199,5 +199,10 @@ When running the Flask application, you can access it by visiting `http://127.0.
 
 Overall, this code sets up a connection to a MySQL database, creates a table, inserts data into the table, and provides an API endpoint to retrieve flight information based on the flight number using a Flask application.
 
+## Running the Flask Application:
+
+The code runs the Flask application on the local machine (`localhost`) with the IP address `127.0.0.1` and in debug mode (`debug=True`).
+
+
 
 
