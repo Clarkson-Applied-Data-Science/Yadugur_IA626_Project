@@ -27,3 +27,6 @@ Establishing a database connection is essential for performing database operatio
 
 In the provided code, the connection is established with a remote MySQL server hosted at `mysql.clarksonmsda.org`, using the specified port, username (`ia626`), password (`ia626clarkson`), and database name (`ia626`).
 
+<img width="1131" alt="Conneceting with Database" src="https://github.com/Clarkson-Applied-Data-Science/Yadugur_IA626_Project/assets/133018344/6b9c3ff2-4a7d-46f8-8cab-7e49413d9bc8">
+
+
