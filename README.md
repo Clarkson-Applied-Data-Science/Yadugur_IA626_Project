@@ -70,4 +70,56 @@ In the provided code, the connection is established with a remote MySQL server h
 
 <img width="1131" alt="Conneceting with Database" src="https://github.com/Clarkson-Applied-Data-Science/Yadugur_IA626_Project/assets/133018344/6b9c3ff2-4a7d-46f8-8cab-7e49413d9bc8">
 
+## Reading Input Data
+```python
+f=open('input.txt','r')
+raw_data=f.readlines()
+print(raw_data[0])
+print(len(raw_data))
+```
+The code opens a file named `input.txt` and reads its content line by line into the `raw_data` list. The first line is printed, and the total number of lines is displayed.
+
+## Inserting Data into the Database
+```python
+insert_query = '''INSERT INTO `yadugur_FinalProject` (`dt`,`hex`,`flight`,`alt_baro`,`alt_geom`,`gs`,`baro_rate`,`geom_rate`,`category`,`lat`,`lon`,`seen_pos`,`version`) VALUES (%s, %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);'''
+tokens=[]
+counter=0
+for row in raw_data[0:10015]:
+    temp=json.loads(row)
+    print(temp)
+    print(counter)
+    counter=counter+1
+    if ('flight' in temp['payload']) and ('baro_rate' in temp['payload']) and ('lat' in temp['payload']) and ('category' in temp['payload']):
+      tokens.append([temp['dt'], temp['payload']['hex'],temp['payload']['flight'],temp['payload']['alt_baro'],temp['payload']['alt_geom'],temp['payload']['gs'],temp['payload']['baro_rate'],temp['payload']['baro_rate'],temp['payload']['category'],temp['payload']['lat'],temp['payload']['lon'],temp['payload']['seen_pos'],temp['payload']['version']])
+    else:
+        continue
+    if len(tokens)>=10000:
+        cur.executemany(insert_query,tokens)
+        tokens=[]
+if len(tokens)>0:
+    cur.executemany(insert_query,tokens)
+```
+
+
+
+1. The code snippet begins by defining an SQL insert query string using triple quotes (`'''`). The query is designed to insert data into the `yadugur_FinalProject` table, with specific column names (`dt`, `hex`, `flight`, `alt_baro`, `alt_geom`, `gs`, `baro_rate`, `geom_rate`, `category`, `lat`, `lon`, `seen_pos`, `version`). Make sure to adjust the column names to match your table structure.
+
+2. The `tokens` list is initialized, which will store the data to be inserted into the database. It serves as a temporary container for rows of data.
+
+3. The `counter` variable is set to 0. It is used to track the iteration number in the loop for informational purposes.
+
+4. The loop iterates over the `raw_data` list, which contains JSON payloads. The loop limits the iteration to the first 10,015 elements (`raw_data[0:10015]`). Adjust this range according to your needs.
+
+5. Within each iteration, the JSON payload (`temp`) is loaded using `json.loads()` to convert it into a Python dictionary.
+
+6. The `temp` dictionary is checked to ensure that it contains the required fields for insertion (`'flight'`, `'baro_rate'`, `'lat'`, and `'category'`). If all the required fields are present, a new row of data is constructed as a list and appended to the `tokens` list.
+
+7. If any of the required fields are missing, the loop continues to the next iteration (`continue` statement), skipping the current payload.
+
+8. After appending the data to the `tokens` list, the code checks if the length of `tokens` exceeds or equals 10,000. If so, it executes the insert query using `cur.executemany()` to insert multiple rows of data efficiently.
+
+9. If there are any remaining tokens in the `tokens` list after the batch insertion, the `cur.executemany()` function is called again to insert them into the database.
+
+10. Finally, outside the loop, the code checks if there are any remaining tokens in the `tokens` list that haven't been inserted. If so, they are inserted using `cur.executemany()`.
+
 
