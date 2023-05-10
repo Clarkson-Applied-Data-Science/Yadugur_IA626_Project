@@ -193,4 +193,11 @@ if __name__ == "__main__":
 When running the Flask application, you can access it by visiting `http://127.0.0.1:5000/flightinfo` in your web browser, assuming the `/flightinfo` endpoint has been defined within your Flask routes.
 
 
+## API Endpoint: 
+ 
+ The code defines a route `/flightinfo` for the Flask application, which accepts both GET and POST requests. Inside the function associated with this route, it retrieves the `flightnum` parameter from the request's arguments and constructs a SQL query to fetch flight information from the database based on the given flight number. The query is executed using `cur.execute()`, and the retrieved rows are processed and stored in a list of dictionaries (`rows`). Finally, the response JSON is constructed with the search results and a message.
+
+Overall, this code sets up a connection to a MySQL database, creates a table, inserts data into the table, and provides an API endpoint to retrieve flight information based on the flight number using a Flask application.
+
+
 
