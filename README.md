@@ -209,7 +209,8 @@ The code runs the Flask application on the local machine (`localhost`) with the 
 
 
 
-### In a nutshell, this code sets up a connection to a MySQL database, creates a table, inserts data into the table, and provides an API endpoint to retrieve flight information based on the flight number using a Flask application. This can be further extended and customized to meet specific requirements related to flight data retrieval and display.
+### In a nutshell
+This code sets up a connection to a MySQL database, creates a table, inserts data into the table, and provides an API endpoint to retrieve flight information based on the flight number using a Flask application. This can be further extended and customized to meet specific requirements related to flight data retrieval and display.
 
 
 
