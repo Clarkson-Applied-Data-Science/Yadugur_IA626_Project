@@ -30,6 +30,38 @@ The code starts by importing several libraries and modules that are necessary fo
 - `Flask`: Flask is a popular web framework for Python that simplifies the process of building web applications. It provides routing, request handling, and response generation functionalities. In the code, Flask is used to create a web application with defined routes and endpoints.
 
 ## Connecting with Database and creating database:
+
+```python
+conn = pymysql.connect(host='mysql.clarksonmsda.org', port=3306, user='ia626',
+                       passwd='ia626clarkson', db='ia626', autocommit=True)
+
+cur = conn.cursor(pymysql.cursors.DictCursor)
+
+sql = '''DROP TABLE IF EXISTS `yadugur_FinalProject`;'''
+cur.execute(sql)
+
+sql = '''
+CREATE TABLE IF NOT EXISTS `yadugur_FinalProject` (
+  `id` int(6) NOT NULL AUTO_INCREMENT,
+   `dt` DATETIME NOT NULL,
+  `hex` VARCHAR(10) NOT NULL,
+  `flight` VARCHAR(10) NOT NULL,
+  `alt_baro` INT(6) NOT NULL,
+  `alt_geom` INT(6) NOT NULL,
+  `gs` DECIMAL(4,1) NOT NULL,
+  `baro_rate` INT(5) NOT NULL,
+  `geom_rate` INT(8) NULL,
+  `category` VARCHAR(4) NOT NULL,
+  `lat` DECIMAL(9,6) NOT NULL,
+  `lon` DECIMAL(9,6) NOT NULL,
+  `seen_pos` DECIMAL(2,1) NOT NULL,
+  `version` INT(5) NOT NULL,
+
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+'''
+cur.execute(sql)
+```
 The code establishes a connection to a MySQL database using the `pymysql.connect()` function. This function takes various arguments, including the host (the address of the database server), port number, username, password, and database name.
 
 Establishing a database connection is essential for performing database operations, such as creating tables, inserting data, querying, and retrieving results. The connection object (`conn`) represents the connection to the database and provides a gateway to execute queries.
