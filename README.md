@@ -19,3 +19,11 @@ The code starts by importing several libraries and modules that are necessary fo
 - `json`: The `json` module provides functions for working with JSON (JavaScript Object Notation) data. It allows parsing JSON strings into Python objects and vice versa. In the code, it is used to parse each line of the `input.txt` file, which contains JSON data.
 
 - `Flask`: Flask is a popular web framework for Python that simplifies the process of building web applications. It provides routing, request handling, and response generation functionalities. In the code, Flask is used to create a web application with defined routes and endpoints.
+
+## Connecting with Database:
+The code establishes a connection to a MySQL database using the `pymysql.connect()` function. This function takes various arguments, including the host (the address of the database server), port number, username, password, and database name.
+
+Establishing a database connection is essential for performing database operations, such as creating tables, inserting data, querying, and retrieving results. The connection object (`conn`) represents the connection to the database and provides a gateway to execute queries.
+
+In the provided code, the connection is established with a remote MySQL server hosted at `mysql.clarksonmsda.org`, using the specified port, username (`ia626`), password (`ia626clarkson`), and database name (`ia626`).
+
