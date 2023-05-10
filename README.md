@@ -207,7 +207,9 @@ The code runs the Flask application on the local machine (`localhost`) with the 
 ## Details of the flight : ACA56
 <img width="1437" alt="ACA56" src="https://github.com/Clarkson-Applied-Data-Science/Yadugur_IA626_Project/assets/133018344/0b76c16d-605f-4648-973f-c8f66e8583bd">
 
-Overall, this code sets up a connection to a MySQL database, creates a table, inserts data into the table, and provides an API endpoint to retrieve flight information based on the flight number using a Flask application.
+
+
+## Overall, this code sets up a connection to a MySQL database, creates a table, inserts data into the table, and provides an API endpoint to retrieve flight information based on the flight number using a Flask application.
 
 
 
