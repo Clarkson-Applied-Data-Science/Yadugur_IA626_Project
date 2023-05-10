@@ -195,7 +195,7 @@ When running the Flask application, you can access it by visiting `http://127.0.
 
 ## API Endpoint: 
  
- The code defines a route `/flightinfo` for the Flask application, which accepts both GET and POST requests. Inside the function associated with this route, it retrieves the `flightnum` parameter from the request's arguments and constructs a SQL query to fetch flight information from the database based on the given flight number. The query is executed using `cur.execute()`, and the retrieved rows are processed and stored in a list of dictionaries (`rows`). Finally, the response JSON is constructed with the search results and a message.
+ The API endpoint is defined using the `@app.route("/flightinfo", methods=['GET','POST'])` decorator. This decorator specifies the URL path (`/flightinfo`) at which the endpoint can be accessed and the allowed HTTP methods (GET and POST). Inside the function associated with this route, it retrieves the `flightnum` parameter from the request's arguments and constructs a SQL query to fetch flight information from the database based on the given flight number. The query is executed using `cur.execute()`, and the retrieved rows are processed and stored in a list of dictionaries (`rows`). Finally, the response JSON is constructed with the search results and a message.
 
 ## Running the Flask Application:
 
