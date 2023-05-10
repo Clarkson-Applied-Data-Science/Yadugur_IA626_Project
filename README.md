@@ -6,7 +6,7 @@ The main focus of the project revolves around data preprocessing, data cleaning,
 <img width="1125" alt="Sample Data" src="https://github.com/Clarkson-Applied-Data-Science/Yadugur_IA626_Project/assets/133018344/f80438a8-bdb4-4234-a2bf-e2d43c6ff33f">
 
 
-## Importing Required LibrariesIMPORTING:
+## Importing Required Libraries:
 
 ```python
 import pymysql
@@ -29,7 +29,7 @@ The code starts by importing several libraries and modules that are necessary fo
 
 - `Flask`: Flask is a popular web framework for Python that simplifies the process of building web applications. It provides routing, request handling, and response generation functionalities. In the code, Flask is used to create a web application with defined routes and endpoints.
 
-## Connecting with Database and creating database:
+## Connecting with database and creating tables:
 
 ```python
 conn = pymysql.connect(host='mysql.clarksonmsda.org', port=3306, user='ia626',
@@ -79,7 +79,7 @@ print(len(raw_data))
 ```
 The code opens a file named `input.txt` and reads its content line by line into the `raw_data` list. The first line is printed, and the total number of lines is displayed.
 
-## Inserting Data into the Database
+## Inserting Data into the Database:
 ```python
 insert_query = '''INSERT INTO `yadugur_FinalProject` (`dt`,`hex`,`flight`,`alt_baro`,`alt_geom`,`gs`,`baro_rate`,`geom_rate`,`category`,`lat`,`lon`,`seen_pos`,`version`) VALUES (%s, %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);'''
 tokens=[]
