@@ -8,6 +8,15 @@ The main focus of the project revolves around data preprocessing, data cleaning,
 
 ## Importing Required LibrariesIMPORTING:
 
+```python
+import pymysql
+import secrets
+import csv
+import json
+from flask import Flask
+from flask import request,redirect
+```
+
 The code starts by importing several libraries and modules that are necessary for different functionalities. Let's discuss them one by one:
 
 - `pymysql`: This library provides functionality to connect and interact with a MySQL database from Python. It enables the code to establish a connection to a MySQL server, execute queries, and fetch results.
@@ -20,7 +29,7 @@ The code starts by importing several libraries and modules that are necessary fo
 
 - `Flask`: Flask is a popular web framework for Python that simplifies the process of building web applications. It provides routing, request handling, and response generation functionalities. In the code, Flask is used to create a web application with defined routes and endpoints.
 
-## Connecting with Database:
+## Connecting with Database and creating database:
 The code establishes a connection to a MySQL database using the `pymysql.connect()` function. This function takes various arguments, including the host (the address of the database server), port number, username, password, and database name.
 
 Establishing a database connection is essential for performing database operations, such as creating tables, inserting data, querying, and retrieving results. The connection object (`conn`) represents the connection to the database and provides a gateway to execute queries.
